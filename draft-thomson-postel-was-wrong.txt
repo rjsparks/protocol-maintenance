@@ -8,18 +8,18 @@ Intended status: Informational                             March 7, 2015
 Expires: September 8, 2015
 
 
- Liberal Interpretations of Protocols Causes Long-Term Interoperability
-                                 Issues
+               A Proposed Evolution of Postel's Principle
                  draft-thomson-postel-was-wrong-latest
 
 Abstract
 
-   Jon Postel's famous statement from RFC 1122 of "Be liberal in what
-   you accept, and conservative in what you send" - is a principle that
-   has long guided the design of Internet protocols and implementations
-   of those protocols.  The philosophy of liberally accepting inputs
-   encourages divergent behavior that has harmful long-term consequences
-   to protocol interoperability.
+   Jon Postel's famous statement in RFC 1122 of "Be liberal in what you
+   accept, and conservative in what you send" - is a principle that has
+   long guided the design of Internet protocols and implementations of
+   those protocols.  The posture this statement advocates might promote
+   interoperability in the short term, but that short term advantage is
+   outweighed by negative consequences that affect the long term
+   maintenance of a protocol and its ecosystem.
 
 Status of This Memo
 
@@ -55,7 +55,7 @@ Copyright Notice
 
 Thomson                 Expires September 8, 2015               [Page 1]
 
-Internet-Draft        On Implementation Liberality            March 2015
+Internet-Draft          A New Postel's Principle              March 2015
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -65,18 +65,18 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  The Long Term Consequences of Liberal Acceptance  . . . . . .   3
-   3.  Creating Barriers to Implementation . . . . . . . . . . . . .   3
+   3.  Creating Barriers to Implementation . . . . . . . . . . . . .   4
    4.  Extension: Elephants Out, Donkeys In  . . . . . . . . . . . .   4
-   5.  A Fatalistic Interpretation of the Principle  . . . . . . . .   4
+   5.  A Fatalistic Interpretation of the Principle  . . . . . . . .   5
    6.  A New Design Principle for the Internet . . . . . . . . . . .   5
      6.1.  Fail Fast and Hard  . . . . . . . . . . . . . . . . . . .   5
-     6.2.  Extend Carefully  . . . . . . . . . . . . . . . . . . . .   5
+     6.2.  Extend Carefully  . . . . . . . . . . . . . . . . . . . .   6
      6.3.  Implementer Guidance  . . . . . . . . . . . . . . . . . .   6
-     6.4.  Protocol Maintenance is Important . . . . . . . . . . . .   6
+     6.4.  Protocol Maintenance is Important . . . . . . . . . . . .   7
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
    9.  Informative References  . . . . . . . . . . . . . . . . . . .   7
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   8
 
 1.  Introduction
 
@@ -90,38 +90,38 @@ Table of Contents
 
    In comparison, his contributions to the underpinnings of the
    Internet, which are in many respects more significant, enjoy less
-   conscious recognition.
-
-   Postel's principle has been hugely influential in shaping the
-   Internet and the systems that use Internet protocols.  Many consider
-   Postel's principle to have contributed significantly to the success
-   of the Internet and critical in guiding the design of interoperable
-   protocols.
+   conscious recognition.  Postel's principle has been hugely
+   influential in shaping the Internet and the systems that use Internet
+   protocols.  Many consider this principle to be instrumental in the
+   success of the Internet as well as the design of interoperable
+   protocols in general.
 
    Over time, considerable changes have occurred in both the scale of
    the Internet and the level of skill and experience available to
    protocol and software designers.  Part of that experience is with
-   protocols that were designed in the early phases of the Internet.
+   protocols that were designed, informed by Postel's principle, in the
+   early phases of the Internet.
 
-   That experience shows that there are significant long-term
-   consequences to interoperability if an implementation is tolerant of
-   variations in input data.  Even in the presence of careful and
+   That experience shows that there are negative long-term consequences
+   to interoperability if an implementation applies Postel's principle.
+   Correcting the problems caused by divergent behavior in
+   implementations is extremely difficult or impossible.
 
 
 
 Thomson                 Expires September 8, 2015               [Page 2]
 
-Internet-Draft        On Implementation Liberality            March 2015
+Internet-Draft          A New Postel's Principle              March 2015
 
 
-   studious maintenance from IETF custodians, the sorts of divergent
-   behavior is virtually impossible to rectify.
+   It might be suggested that the posture Postel's principle advocates
+   was indeed necessary during the formative years of the Internet, and
+   even key to its success.  This document takes no position on that
+   claim.
 
-   We might speculate that the sort of flexibility that Postel's
-   principle advocates was indeed necessary during the formative years
-   of the Internet.  Such speculation is not the aim of this document.
-   Rather this describes the negative consequences of the application of
-   Postel's principle to the modern Internet.
+   This document instead describes the negative consequences of the
+   application of Postel's principle to the modern Internet.  It also
+   proposes a replacement design principle.
 
    There is good evidence to suggest that designers of protocols in the
    IETF widely understand the limitations of Postel's principle.  This
@@ -157,30 +157,37 @@ Internet-Draft        On Implementation Liberality            March 2015
       these errors can become entrenched, forcing other implementations
       to be tolerant of those errors.
 
-3.  Creating Barriers to Implementation
-
-   Once divergent implementations exists, interoperation with those
-   implementations generally takes precedence over correcting the
-   underlying flaws that produced the divergence.  This is both a
+   For instance, a number of bugs (or quirks) in both specifications and
+   implementations of the JSON format [RFC7159] mean that certain
+   encodings can cause problems.  A safe subset of JSON has been defined
+   that identifies constructs that can be avoided to maximize
+   interoperability [I-D.ietf-json-i-json].
 
 
 
 Thomson                 Expires September 8, 2015               [Page 3]
 
-Internet-Draft        On Implementation Liberality            March 2015
+Internet-Draft          A New Postel's Principle              March 2015
 
 
+3.  Creating Barriers to Implementation
+
+   Once divergent implementations exists, interoperation with those
+   implementations generally takes precedence over correcting the
+   underlying flaws that produced the divergence.  This is both a
    natural consequence of applying Postel's principle, and a natural
    reluctance not to generate an error condition when the situation can
    be recovered.
 
    Once this process has begun and deviations become entrenched, there
-   is little that can be done to reverse the process.  Protocol
-   maintenace can help by carefully documenting the various forms of
-   divergence and recommending limits on what is acceptable.  This
-   process can be tedious and time-consuming, but it is crucial in
-   supporting the interoperability of both existing and new protocol
-   implementations.
+   is little that can be done to reverse the process.
+
+   Protocol maintenace can help by carefully documenting the various
+   forms of divergence and recommending limits on what is acceptable.
+   This process can be tedious and time-consuming.  For instance, the
+   revision to HTTP/1.1 took considerable effort over more than 6 years.
+   However, this sort of effort was crucial in supporting the
+   interoperability of both existing and new protocol implementations.
 
    For widely used protocols, the current scale of the Internet makes
    large scale interoperability testing infeasible for all a privileged
@@ -199,13 +206,25 @@ Internet-Draft        On Implementation Liberality            March 2015
    Many protocols are specifically designed to permit deviation from the
    basic protocol in constrained ways.  A well-defined extensibility
    framework in a protocol is often the most valuable asset a protocol
-   has.  For instance, HTTP [RFC7230] would not enjoy the success it has
-   without its excellent support for certain forms of extension.
+   has.  For instance, Diameter's comprehensive extensibility framework
+   [RFC7423] is perhaps its most important feature; whereas the Session
+   Description Protocol [RFC4566] has benefited greatly from the ability
+   to extend with new attributes.
 
    It is recognized that designing and defining an extension framework
    is challenging [RFC6709].  In particular, it is difficult to
    anticipate the various ways in which future protocol users might wish
    to expand the protocol.
+
+
+
+
+
+
+Thomson                 Expires September 8, 2015               [Page 4]
+
+Internet-Draft          A New Postel's Principle              March 2015
+
 
    Extension of a protocol without regard to the existing extension
    points - especially in an ad-hoc fashion - is a common source of
@@ -218,13 +237,6 @@ Internet-Draft        On Implementation Liberality            March 2015
    its behavior.  The messages it transmits will be more and more tighly
    proscribed and it will have increasingly promiscuous criteria for
    acceptance of incoming messages.
-
-
-
-Thomson                 Expires September 8, 2015               [Page 4]
-
-Internet-Draft        On Implementation Liberality            March 2015
-
 
    Thus, a more appropriate interpretation of Postel's principle might
    be as an observation that the Second Law of Thermodynamics applies to
@@ -244,12 +256,12 @@ Internet-Draft        On Implementation Liberality            March 2015
    The following principle applies not just to the implementation of a
    protocol, but to the design and specification of the protocol.
 
-      Protocols and implementations of protocols should be maximally
-      strict.
+      Protocol designs and implementations should be maximally strict.
 
-   This principle is based on the lessons of protocol deployment.  The
-   principle is also based on valuing early feedback, a practice central
-   to modern engineering discipline.
+   Though perhaps a less pithy than Postel's formulation, this principle
+   is based on the lessons of protocol deployment.  The principle is
+   also based on valuing early feedback, a practice central to modern
+   engineering discipline.
 
 6.1.  Fail Fast and Hard
 
@@ -259,13 +271,21 @@ Internet-Draft        On Implementation Liberality            March 2015
    ensure errors are surfaced in a visible and expedient fashion.
 
    Generating fatal errors for what would otherwise be a minor or
-   recoverable error is generally advisible, especially if there is any
-   risk that the error represents an implementation flaw.  A fatal error
-   provides excellent motivation for an error to be addressed.
+   recoverable error is preferred, especially if there is any risk that
+   the error represents an implementation flaw.  A fatal error provides
+   excellent motivation for addressing problems.
+
+
+
+Thomson                 Expires September 8, 2015               [Page 5]
+
+Internet-Draft          A New Postel's Principle              March 2015
+
 
    On the whole, implementations already have ample motivation to prefer
-   interoperability over correctness.  The role of a specifications is
-   to proscribe behavior in the interest of interoperability.
+   interoperability over correctness.  The primary function of a
+   specification is to proscribe behavior in the interest of
+   interoperability.
 
 6.2.  Extend Carefully
 
@@ -275,23 +295,18 @@ Internet-Draft        On Implementation Liberality            March 2015
    but a well designed extension framework can relieve pressure on
    protocol maintainers.
 
+   A protocol extension point carries both cost and risk.  It is better
+   to remove extension options than to risk providing an extension
+   mechanism with unknown or uncertain characteristics.
 
-
-Thomson                 Expires September 8, 2015               [Page 5]
-
-Internet-Draft        On Implementation Liberality            March 2015
-
-
-   It is better to remove extension options than to risk providing an
-   extension mechanism with unknown or uncertain characteristics.
-
-   When evolving a protocol, version negotiation is the single most
-   important point of extensibility.  This provides a fallback option
-   for protocol evolution, ensuring that changes that can't be
+   Version negotiation is perhaps the most critical extensibility point
+   for any protocol, and even protocol extensions.  Version negotiation
+   provides an option of last resort for any shortfalls in any
+   originally conceived extensibility: changes that can't be
    accommodated within the protocol can be addressed by revising the
-   entire protocol.  A protocol that includes provisions for its own
-   eventual replacement is less likely to cause persistent and difficult
-   maintenance problems.
+   entire protocol.  A protocol that includes robust provisions for its
+   own eventual replacement always has at least one option available to
+   address even the most intractable of maintenance problems.
 
 6.3.  Implementer Guidance
 
@@ -314,6 +329,15 @@ Internet-Draft        On Implementation Liberality            March 2015
    problem requires tolerance.  However, capturing that decision in a
    specification is critical to avoid later issues.
 
+
+
+
+
+Thomson                 Expires September 8, 2015               [Page 6]
+
+Internet-Draft          A New Postel's Principle              March 2015
+
+
 6.4.  Protocol Maintenance is Important
 
    Protocol designers are encouraged to continue to maintain and evolve
@@ -327,16 +351,6 @@ Internet-Draft        On Implementation Liberality            March 2015
    rejection of a feature can force requesters to explore ad-hoc
    protocol changes.  A poorly designed ad-hoc change can do significant
    harm to interoperability if they turn out to be successful.
-
-
-
-
-
-
-Thomson                 Expires September 8, 2015               [Page 6]
-
-Internet-Draft        On Implementation Liberality            March 2015
-
 
 7.  IANA Considerations
 
@@ -359,16 +373,37 @@ Internet-Draft        On Implementation Liberality            March 2015
 
 9.  Informative References
 
+   [I-D.ietf-json-i-json]
+              Bray, T., "The I-JSON Message Format", draft-ietf-json-
+              i-json-06 (work in progress), January 2015.
+
    [RFC0760]  Postel, J., "DoD standard Internet Protocol", RFC 760,
               January 1980.
+
+   [RFC4566]  Handley, M., Jacobson, V., and C. Perkins, "SDP: Session
+              Description Protocol", RFC 4566, July 2006.
 
    [RFC6709]  Carpenter, B., Aboba, B., and S. Cheshire, "Design
               Considerations for Protocol Extensions", RFC 6709,
               September 2012.
 
+
+
+Thomson                 Expires September 8, 2015               [Page 7]
+
+Internet-Draft          A New Postel's Principle              March 2015
+
+
+   [RFC7159]  Bray, T., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", RFC 7159, March 2014.
+
    [RFC7230]  Fielding, R. and J. Reschke, "Hypertext Transfer Protocol
               (HTTP/1.1): Message Syntax and Routing", RFC 7230, June
               2014.
+
+   [RFC7423]  Morand, L., Fajardo, V., and H. Tschofenig, "Diameter
+              Applications Design Guidelines", BCP 193, RFC 7423,
+              November 2014.
 
 Author's Address
 
@@ -389,4 +424,25 @@ Author's Address
 
 
 
-Thomson                 Expires September 8, 2015               [Page 7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thomson                 Expires September 8, 2015               [Page 8]
