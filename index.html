@@ -5,7 +5,7 @@
 <head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 
-  <title>A Proposed Evolution of Postel's Principle</title>
+  <title>The Harmful Consequences of Postel's Maxim</title>
 
   <style type="text/css" title="Xml2Rfc (sans serif)">
   /*<![CDATA[*/
@@ -454,27 +454,24 @@ ul.toc a:first-child {
 
   <link href="#rfc.toc" rel="Contents"/>
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
-<link href="#rfc.section.2" rel="Chapter" title="2 The Long Term Consequences of Liberal Acceptance"/>
-<link href="#rfc.section.3" rel="Chapter" title="3 Creating Barriers to Implementation"/>
-<link href="#rfc.section.4" rel="Chapter" title="4 Extension: Elephants Out, Donkeys In"/>
-<link href="#rfc.section.5" rel="Chapter" title="5 A Fatalistic Interpretation of Postel&#x2019;s Principle"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 A New Design Principle for the Internet"/>
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Fail Fast and Hard"/>
-<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Extend Carefully"/>
-<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Implementations Are Ultimately Responsible"/>
-<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Protocol Maintenance is Important"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations"/>
-<link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
-<link href="#rfc.references" rel="Chapter" title="9 Informative References"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 The Protocol Decay Hypothesis"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 The Long Term Costs"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 A New Design Principle"/>
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Fail Fast and Hard"/>
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Implementations Are Ultimately Responsible"/>
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Protocol Maintenance is Important"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 IANA Considerations"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations"/>
+<link href="#rfc.references" rel="Chapter" title="7 Informative References"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
-  <meta name="generator" content="xml2rfc version 2.4.9 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.4.10 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Thomson, M." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-thomson-postel-was-wrong-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-3-7" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-3-9" />
   <meta name="dct.abstract" content="Jon Postel&#8217;s famous statement in RFC 1122 of &#8220;Be liberal in what you accept, and conservative in what you send&#8221; &#8211; is a principle that has long guided the design of Internet protocols and implementations of those protocols.  The posture this statement advocates might promote interoperability in the short term, but that short term advantage is outweighed by negative consequences that affect the long term maintenance of a protocol and its ecosystem." />
   <meta name="description" content="Jon Postel&#8217;s famous statement in RFC 1122 of &#8220;Be liberal in what you accept, and conservative in what you send&#8221; &#8211; is a principle that has long guided the design of Internet protocols and implementations of those protocols.  The posture this statement advocates might promote interoperability in the short term, but that short term advantage is outweighed by negative consequences that affect the long term maintenance of a protocol and its ecosystem." />
 
@@ -495,10 +492,10 @@ ul.toc a:first-child {
 </tr>
 <tr>
   <td class="left">Intended status: Informational</td>
-  <td class="right">March 7, 2015</td>
+  <td class="right">March 9, 2015</td>
 </tr>
 <tr>
-  <td class="left">Expires: September 8, 2015</td>
+  <td class="left">Expires: September 10, 2015</td>
   <td class="right"></td>
 </tr>
 
@@ -506,7 +503,7 @@ ul.toc a:first-child {
     </tbody>
   </table>
 
-  <p class="title">A Proposed Evolution of Postel's Principle<br />
+  <p class="title">The Harmful Consequences of Postel's Maxim<br />
   <span class="filename">draft-thomson-postel-was-wrong-latest</span></p>
   
   <h1 id="rfc.abstract">
@@ -519,7 +516,7 @@ ul.toc a:first-child {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on September 8, 2015.</p>
+<p>This Internet-Draft will expire on September 10, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -532,18 +529,15 @@ ul.toc a:first-child {
   <ul class="toc">
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
-<li>2.   <a href="#rfc.section.2">The Long Term Consequences of Liberal Acceptance</a></li>
-<li>3.   <a href="#rfc.section.3">Creating Barriers to Implementation</a></li>
-<li>4.   <a href="#rfc.section.4">Extension: Elephants Out, Donkeys In</a></li>
-<li>5.   <a href="#rfc.section.5">A Fatalistic Interpretation of Postel&#8217;s Principle</a></li>
-<li>6.   <a href="#rfc.section.6">A New Design Principle for the Internet</a></li>
-<ul><li>6.1.   <a href="#rfc.section.6.1">Fail Fast and Hard</a></li>
-<li>6.2.   <a href="#rfc.section.6.2">Extend Carefully</a></li>
-<li>6.3.   <a href="#rfc.section.6.3">Implementations Are Ultimately Responsible</a></li>
-<li>6.4.   <a href="#rfc.section.6.4">Protocol Maintenance is Important</a></li>
-</ul><li>7.   <a href="#rfc.section.7">IANA Considerations</a></li>
-<li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
-<li>9.   <a href="#rfc.references">Informative References</a></li>
+<li>2.   <a href="#rfc.section.2">The Protocol Decay Hypothesis</a></li>
+<li>3.   <a href="#rfc.section.3">The Long Term Costs</a></li>
+<li>4.   <a href="#rfc.section.4">A New Design Principle</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Fail Fast and Hard</a></li>
+<li>4.2.   <a href="#rfc.section.4.2">Implementations Are Ultimately Responsible</a></li>
+<li>4.3.   <a href="#rfc.section.4.3">Protocol Maintenance is Important</a></li>
+</ul><li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<li>6.   <a href="#rfc.section.6">Security Considerations</a></li>
+<li>7.   <a href="#rfc.references">Informative References</a></li>
 <li><a href="#rfc.authors">Author's Address</a></li>
 
 
@@ -557,97 +551,63 @@ ul.toc a:first-child {
   <li>In general, an implementation should be conservative in its sending behavior, and liberal in its receiving behavior.</li>
 </ul>
 <p id="rfc.section.1.p.3">In comparison, his contributions to the underpinnings of the Internet, which are in many respects more significant, enjoy less conscious recognition.  Postel&#8217;s principle has been hugely influential in shaping the Internet and the systems that use Internet protocols.  Many consider this principle to be instrumental in the success of the Internet as well as the design of interoperable protocols in general.</p>
-<p id="rfc.section.1.p.4">Over time, considerable changes have occurred in both the scale of the Internet and the level of skill and experience available to protocol and software designers.  Part of that experience is with protocols that were designed, informed by Postel&#8217;s principle, in the early phases of the Internet.</p>
-<p id="rfc.section.1.p.5">That experience shows that there are negative long-term consequences to interoperability if an implementation applies Postel&#8217;s principle.  Correcting the problems caused by divergent behavior in implementations is extremely difficult or impossible.</p>
-<p id="rfc.section.1.p.6">It might be suggested that the posture Postel&#8217;s principle advocates was indeed necessary during the formative years of the Internet, and even key to its success.  This document takes no position on that claim.</p>
-<p id="rfc.section.1.p.7">This document instead describes the negative consequences of the application of Postel&#8217;s principle to the modern Internet.  It also proposes a replacement design principle.</p>
+<p id="rfc.section.1.p.4">Over time, considerable changes have occurred in both the scale of the Internet and the level of skill and experience available to protocol and software designers.  Part of that experience is with protocols that were designed, informed by Postel&#8217;s maxim, in the early phases of the Internet.</p>
+<p id="rfc.section.1.p.5">That experience shows that there are negative long-term consequences to interoperability if an implementation applies Postel&#8217;s advice.  Correcting the problems caused by divergent behavior in implementations can be difficult or impossible.</p>
+<p id="rfc.section.1.p.6">It might be suggested that the posture Postel advocates was indeed necessary during the formative years of the Internet, and even key to its success.  This document takes no position on that claim.</p>
+<p id="rfc.section.1.p.7">This document instead describes the negative consequences of the application of Postel&#8217;s principle to the modern Internet.  A replacement design principle is suggested.</p>
 <p id="rfc.section.1.p.8">There is good evidence to suggest that designers of protocols in the IETF widely understand the limitations of Postel&#8217;s principle.  This document serves primarily as a record of the shortcomings of His principle for the wider community.</p>
-<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#time" id="time">The Long Term Consequences of Liberal Acceptance</a></h1>
-<p id="rfc.section.2.p.1">There a several reasons why situations where Postel&#8217;s principle applies might arise:</p>
-<p/>
-
-<ul>
-  <li>Divergent implementations of a specification often arise when the specification fails to cover a particular case properly.  This can be a lack of specification, or a conflict in specification requirements.</li>
-  <li>Aside from specification shortcomings, similar problems emerge when the protocol enjoys use outside of its original intended context, or when the protocol is extended to support new scenarios.</li>
-  <li>Finally, if implementation flaws in protocols are not detected and fixed quickly, they can remain as a source of implementation variation.</li>
-</ul>
-<p id="rfc.section.2.p.3">Situations where two peers disagree about the exact interpretation of a specification are common, and should be expected over the lifetime of a protocol.</p>
-<p id="rfc.section.2.p.4">An implementation that reacts to variations in the manner advised by Postel&#8217;s principle is expected to be tolerant.  This sets up a feedback cycle of negative consequences:</p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#time" id="time">The Protocol Decay Hypothesis</a></h1>
+<p id="rfc.section.2.p.1">Divergent implementations of a specification emerge over time.  When variations occur in the interpretation or expression of semantic components, implementations cease to be perfectly interoperable.</p>
+<p id="rfc.section.2.p.2">Implementation bugs are often identified as the cause of variation, though it is often a combination of factors.  Application of a protocol to new and unanticipated uses, and ambiguities or errors in the specification are often confounding factors.</p>
+<p id="rfc.section.2.p.3">Of course, situations where two peers disagree are common, and should be expected over the lifetime of a protocol.  Even with the best intentions, the pressure to interoperate can be significant.  No implementation can hope to avoid having to trade correctness for interoperability indefinitely.</p>
+<p id="rfc.section.2.p.4">An implementation that reacts to variations in the manner advised by Postel sets up a feedback cycle:</p>
 <p/>
 
 <ul>
   <li>Over time, implementations progressively add new code to constrain how data is transmitted, or to permit variations what is received.</li>
-  <li>Errors in implementations can thereby be masked.  Subsequently, these errors can become entrenched, forcing other implementations to be tolerant of those errors.</li>
+  <li>Errors in implementations, or confusion about semantics can thereby be masked.</li>
+  <li>As a result, errors can become entrenched, forcing other implementations to be tolerant of those errors.</li>
 </ul>
-<p id="rfc.section.2.p.6">For instance, a number of bugs (or quirks) in both specifications and implementations of the JSON format <a href="#RFC7159">[RFC7159]</a> mean that certain encodings can cause problems.  A safe subset of JSON has been defined that identifies constructs that can be avoided to maximize interoperability <a href="#I-D.ietf-json-i-json">[I-D.ietf-json-i-json]</a>.</p>
-<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#creating-barriers-to-implementation" id="creating-barriers-to-implementation">Creating Barriers to Implementation</a></h1>
-<p id="rfc.section.3.p.1">Once divergent implementations exist, interoperation with those implementations can take precedence over correcting the underlying flaws that produced the divergence.  This is both a natural consequence of applying Postel&#8217;s principle, and a natural reluctance to avoid fatal error conditions.</p>
-<p id="rfc.section.3.p.2">Once deviations become entrenched, there is little that can be done to rectify the situation.</p>
-<p id="rfc.section.3.p.3">Protocol maintenance can help by carefully documenting the various forms of divergence and recommending limits on what is acceptable.  This process can be tedious and time-consuming.  For instance, a revision to HTTP/1.1 <a href="#RFC7230">[RFC7230]</a> with an aim toward capturing widespread variations in implementations took considerable effort over more than 6 years.  However, this sort of effort can be crucial in supporting the interoperability of both existing and new protocol implementations.</p>
-<p id="rfc.section.3.p.4">For widely used protocols, the current scale of the Internet makes large scale interoperability testing infeasible for all a privileged few.  Without good maintenance, new implementations can be restricted to niche uses, where the prolems arising from interoperability issues can be more closely managed.</p>
-<p id="rfc.section.3.p.5">This has a negative impact on the ecosystem of a protocol.  New implementations of a protocol are important in ensuring the continued viability of a protocol.  New protocol implementations are also more likely to be developed for new and diverse use cases and often are the origin of features and capabilities that can be of benefit to existing users.  These problems also reduce the ability of established implementations to change.</p>
-<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#extension-elephants-out-donkeys-in" id="extension-elephants-out-donkeys-in">Extension: Elephants Out, Donkeys In</a></h1>
-<p id="rfc.section.4.p.1">Many protocols are specifically designed to permit deviation from the basic protocol in constrained ways.  A well-defined extensibility framework in a protocol is often the most valuable asset a protocol has.  For instance, Diameter&#8217;s comprehensive extensibility framework <a href="#RFC7423">[RFC7423]</a> is perhaps its most important feature.  The Session Description Protocol <a href="#RFC4566">[RFC4566]</a> has likewise benefited greatly from the ability to define new attributes, of which there are now in excess of 100.</p>
-<p id="rfc.section.4.p.2">It is recognized that designing and defining an extension framework is challenging <a href="#RFC6709">[RFC6709]</a>.  In particular, it is difficult to anticipate the various ways in which future protocol users might wish to expand the protocol.</p>
-<p id="rfc.section.4.p.3">Extension of a protocol - either without regard to the existing extension points, or by using extension points in an unintended fashion - is a common source of implementation divergence.</p>
-<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#a-fatalistic-interpretation-of-postels-principle" id="a-fatalistic-interpretation-of-postels-principle">A Fatalistic Interpretation of Postel&#8217;s Principle</a></h1>
-<p id="rfc.section.5.p.1">As shown in <a href="#time">Section 2</a>, an implementation that adheres closely to Postel&#8217;s principle will, over time, be increasingly constrained in its behavior.  The messages it transmits will be more and more tighly proscribed and it will be increasingly promiscuous in accepting incoming messages.</p>
-<p id="rfc.section.5.p.2">Thus, though it was most likely not the Postel&#8217;s intention, the statement in RFC 760 and subsequently RFC 1122 might be recast as an application of the Second Law of Thermodynamics to protocol design.  That is:</p>
-<p/>
-
-<ul class="empty">
-  <li>Over time, the pressure to favor interoperability over correctness leads to increased constraints on transmission and greater tolerance to variation in reception.</li>
-</ul>
-<p id="rfc.section.5.p.4">After all, even with the best intentions, the pressure to interoperate can be significant.  No implementation can hope to avoid having to trade correctness for interoperability indefinitely.</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#a-new-design-principle-for-the-internet" id="a-new-design-principle-for-the-internet">A New Design Principle for the Internet</a></h1>
-<p id="rfc.section.6.p.1">The following principle applies not just to the implementation of a protocol, but to the design and specification of the protocol.</p>
+<p id="rfc.section.2.p.6">An entrenched flaw can become a de facto standard.  Any implementation of the protocol is required to replicate the aberrant behavior, or it is not interoperable.  This is both a consequence of applying Postel&#8217;s advice, and a product of a natural reluctance to avoid fatal error conditions.  This is colloquially referred to as being &#8220;bug for bug compatible&#8221;.</p>
+<p id="rfc.section.2.p.7">It is debatable as to whether such a process can be completely avoided, but Postel&#8217;s maxim encourages a reaction that compounds this issue.</p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#the-long-term-costs" id="the-long-term-costs">The Long Term Costs</a></h1>
+<p id="rfc.section.3.p.1">Once deviations become entrenched, there is little that can be done to rectify the situation.</p>
+<p id="rfc.section.3.p.2">For widely used protocols, the massive scale of the Internet makes large scale interoperability testing infeasible for all a privileged few.  Without good maintenance, new implementations can be restricted to niche uses, where the prolems arising from interoperability issues can be more closely managed.</p>
+<p id="rfc.section.3.p.3">This has a negative impact on the ecosystem of a protocol.  New implementations of a protocol are important in ensuring the continued viability of a protocol.  New protocol implementations are also more likely to be developed for new and diverse use cases and often are the origin of features and capabilities that can be of benefit to existing users.  These problems also reduce the ability of established implementations to change.</p>
+<p id="rfc.section.3.p.4">Protocol maintenance can help by carefully documenting divergence and recommending limits on what is both acceptable and interoperable.  The time-consuming process of documenting the actual protocol - rather than the protocol as it was originally conceived - can restore the ability to create and maintain interoperable implementations.</p>
+<p id="rfc.section.3.p.5">Such a process was undertaken for HTTP/1.1 <a href="#RFC7230">[RFC7230]</a>. This this effort took more than 6 years, it has been successful in documenting protocol variations and describing what has over time become a far more complex protocol.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#a-new-design-principle" id="a-new-design-principle">A New Design Principle</a></h1>
+<p id="rfc.section.4.p.1">The following principle applies not just to the implementation of a protocol, but to the design and specification of the protocol.</p>
 <p/>
 
 <ul class="empty">
   <li>Protocol designs and implementations should be maximally strict.</li>
 </ul>
-<p id="rfc.section.6.p.3">Though perhaps a less pithy than Postel&#8217;s formulation, this principle is based on the lessons of protocol deployment.  The principle is also based on valuing early feedback, a practice central to modern engineering discipline.</p>
-<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#fail-fast-and-hard" id="fail-fast-and-hard">Fail Fast and Hard</a></h1>
-<p id="rfc.section.6.1.p.1">Protocol designers should attempt to identify all sources of potential errors during the specification process.  More importantly however, protocols need to include error reporting mechanisms that ensure errors are surfaced in a visible and expedient fashion.</p>
-<p id="rfc.section.6.1.p.2">Generating fatal errors for what would otherwise be a minor or recoverable error is preferred, especially if there is any risk that the error represents an implementation flaw.  A fatal error provides excellent motivation for addressing problems.</p>
-<p id="rfc.section.6.1.p.3">On the whole, implementations already have ample motivation to prefer interoperability over correctness.  The primary function of a specification is to proscribe behavior in the interest of interoperability.</p>
-<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> <a href="#extend-carefully" id="extend-carefully">Extend Carefully</a></h1>
-<p id="rfc.section.6.2.p.1">Special attention needs to be paid to the design of protocol extensibility.  An extension framework <a href="#RFC6709">[RFC6709]</a> can be the source of significant variation in implementations if it is poorly designed, but a well designed extension framework can relieve pressure on protocol maintainers.</p>
-<p id="rfc.section.6.2.p.2">A protocol extension point carries both cost and risk.  It is better to remove extension options than to risk providing an extension mechanism with unknown or uncertain characteristics.</p>
-<p id="rfc.section.6.2.p.3">Version negotiation is perhaps the most critical extensibility point for any protocol, and even protocol extensions.  Version negotiation provides an option of last resort for any shortfalls in any originally conceived extensibility: changes that can&#8217;t be accommodated within the protocol can be addressed by revising the entire protocol.  A protocol that includes robust provisions for its own eventual replacement always has at least one option available to address even the most intractable of maintenance problems.</p>
-<h1 id="rfc.section.6.3"><a href="#rfc.section.6.3">6.3.</a> <a href="#implementations-are-ultimately-responsible" id="implementations-are-ultimately-responsible">Implementations Are Ultimately Responsible</a></h1>
-<p id="rfc.section.6.3.p.1">Implementers are encouraged to expose errors immediately and prominently in addition to what a specification mandates.</p>
-<p id="rfc.section.6.3.p.2">Exposing errors is particularly important for early implementations of a protocol.  If existing deployed implementations generate errors in response to divergent behaviour, then new implementations will be able to detect and correct flaws quickly.</p>
-<p id="rfc.section.6.3.p.3">An implementer that discovers a scenario that is not covered by the specification does the community a greater service by generating a fatal error.  Hiding error scenarios does significant long-term damage to a protocol.  Ideally, specification shortcomings are taken to protocol maintainers.</p>
-<p id="rfc.section.6.3.p.4">This guidance does not demand slavish and unreasoning adherence.  Protocol designers are capable of determining that a particular problem requires tolerance.  However, capturing that decision in a specification is critical to avoid later issues.</p>
-<h1 id="rfc.section.6.4"><a href="#rfc.section.6.4">6.4.</a> <a href="#protocol-maintenance-is-important" id="protocol-maintenance-is-important">Protocol Maintenance is Important</a></h1>
-<p id="rfc.section.6.4.p.1">Protocol designers are encouraged to continue to maintain and evolve protocols beyond their initial inception and definition.  If protocol implementations are simultaneously less tolerant of variation and less extensible, protocol maintenance becomes critical.</p>
-<p id="rfc.section.6.4.p.2">Being responsive to community needs demands an ongoing commitment to improving a protocol.  That means both addressing specification bugs and a willingness to consider the addition of features.  Outright rejection of a feature can force requesters to explore ad-hoc protocol changes.  A poorly designed ad-hoc change can do significant harm to interoperability if the change proves to be successful.</p>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
-<p id="rfc.section.7.p.1">This document has no IANA actions.</p>
-<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
-<p id="rfc.section.8.p.1">Sloppy implementations, lax interpretations of specifications, and uncoordinated extrapolation of requirements to cover gaps in specification can result in security problems.  Hiding the consequences of protocol variations encourages the hiding of issues, which can conceal bugs and make them difficult to discover.</p>
-<p id="rfc.section.8.p.2">Designers and implementers of security protocols generally understand these concerns.  General-purpose protocols are not exempt from careful consideration of security issues.  In fact, because general-purpose protocols have to deal with flaws or obsolescence in a less urgent fashion than security protocols, there can be fewer opportunities to correct problems in protocols that develop these interoperability problems.</p>
-<h1 id="rfc.references"><a href="#rfc.references">9.</a> Informative References</h1>
+<p id="rfc.section.4.p.3">Though less pithy than Postel&#8217;s formulation, this principle is based on the lessons of protocol deployment.  The principle is also based on valuing early feedback, a practice central to modern engineering discipline.</p>
+<h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> <a href="#fail-fast-and-hard" id="fail-fast-and-hard">Fail Fast and Hard</a></h1>
+<p id="rfc.section.4.1.p.1">Protocols need to include error reporting mechanisms that ensure errors are surfaced in a visible and expedient fashion.</p>
+<p id="rfc.section.4.1.p.2">Generating fatal errors for what would otherwise be a minor or recoverable error is preferred, especially if there is any risk that the error represents an implementation flaw.  A fatal error provides excellent motivation for addressing problems.</p>
+<p id="rfc.section.4.1.p.3">On the whole, implementations already have ample motivation to prefer interoperability over correctness.  The primary function of a specification is to proscribe behavior in the interest of interoperability.</p>
+<h1 id="rfc.section.4.2"><a href="#rfc.section.4.2">4.2.</a> <a href="#implementations-are-ultimately-responsible" id="implementations-are-ultimately-responsible">Implementations Are Ultimately Responsible</a></h1>
+<p id="rfc.section.4.2.p.1">Implementers are encouraged to expose errors immediately and prominently in addition to what a specification mandates.</p>
+<p id="rfc.section.4.2.p.2">Exposing errors is particularly important for early implementations of a protocol.  If preexisting implementations generate errors in response to divergent behaviour, then new implementations will be able to detect and correct flaws quickly.</p>
+<p id="rfc.section.4.2.p.3">An implementer that discovers a scenario that is not covered by the specification does the community a greater service by generating a fatal error than by attempted to interpret and adapt.  Hiding errors can cause long-term problems.  Ideally, specification shortcomings are taken to protocol maintainers.</p>
+<p id="rfc.section.4.2.p.4">Unreasoning strictness can be detrimental.  Protocol designers and implementers expected to exercise judgment in determining what level of strictness is ultimately appropriate.  In every case, documenting the decision to deviate from what is specified can avoid later issues.</p>
+<h1 id="rfc.section.4.3"><a href="#rfc.section.4.3">4.3.</a> <a href="#protocol-maintenance-is-important" id="protocol-maintenance-is-important">Protocol Maintenance is Important</a></h1>
+<p id="rfc.section.4.3.p.1">Protocol designers are strongly encouraged to continue to maintain and evolve protocols beyond their initial inception and definition.  If protocol implementations are less tolerant of variation, protocol maintenance becomes critical.  Good extensibility <a href="#RFC6709">[RFC6709]</a> can relieve some of the pressure on maintenance.</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a></h1>
+<p id="rfc.section.5.p.1">This document has no IANA actions.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a></h1>
+<p id="rfc.section.6.p.1">Sloppy implementations, lax interpretations of specifications, and uncoordinated extrapolation of requirements to cover gaps in specification can result in security problems.  Hiding the consequences of protocol variations encourages the hiding of issues, which can conceal bugs and make them difficult to discover.</p>
+<p id="rfc.section.6.p.2">Designers and implementers of security protocols generally understand these concerns.  However, general-purpose protocols are not exempt from careful consideration of security issues.  Furthermore, because general-purpose protocols tend to deal with flaws or obsolescence in a less urgent fashion than security protocols, there can be fewer opportunities to correct problems in protocols that develop interoperability problems.</p>
+<h1 id="rfc.references"><a href="#rfc.references">7.</a> Informative References</h1>
 <table>
   <tbody>
-    <tr>
-      <td class="reference">
-        <b id="I-D.ietf-json-i-json">[I-D.ietf-json-i-json]</b>
-      </td>
-      <td class="top"><a>Bray, T.</a>, "<a href="http://tools.ietf.org/html/draft-ietf-json-i-json-06">The I-JSON Message Format</a>", Internet-Draft draft-ietf-json-i-json-06, January 2015.</td>
-    </tr>
     <tr>
       <td class="reference">
         <b id="RFC0760">[RFC0760]</b>
       </td>
       <td class="top"><a title="University of Southern California (USC)/Information Sciences Institute">Postel, J.</a>, "<a href="http://tools.ietf.org/html/rfc760">DoD standard Internet Protocol</a>", RFC 760, January 1980.</td>
-    </tr>
-    <tr>
-      <td class="reference">
-        <b id="RFC4566">[RFC4566]</b>
-      </td>
-      <td class="top"><a>Handley, M.</a>, <a>Jacobson, V.</a> and <a>C. Perkins</a>, "<a href="http://tools.ietf.org/html/rfc4566">SDP: Session Description Protocol</a>", RFC 4566, July 2006.</td>
     </tr>
     <tr>
       <td class="reference">
@@ -657,21 +617,9 @@ ul.toc a:first-child {
     </tr>
     <tr>
       <td class="reference">
-        <b id="RFC7159">[RFC7159]</b>
-      </td>
-      <td class="top"><a>Bray, T.</a>, "<a href="http://tools.ietf.org/html/rfc7159">The JavaScript Object Notation (JSON) Data Interchange Format</a>", RFC 7159, March 2014.</td>
-    </tr>
-    <tr>
-      <td class="reference">
         <b id="RFC7230">[RFC7230]</b>
       </td>
       <td class="top"><a>Fielding, R.</a> and <a>J. Reschke</a>, "<a href="http://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>", RFC 7230, June 2014.</td>
-    </tr>
-    <tr>
-      <td class="reference">
-        <b id="RFC7423">[RFC7423]</b>
-      </td>
-      <td class="top"><a>Morand, L.</a>, <a>Fajardo, V.</a> and <a>H. Tschofenig</a>, "<a href="http://tools.ietf.org/html/rfc7423">Diameter Applications Design Guidelines</a>", BCP 193, RFC 7423, November 2014.</td>
     </tr>
   </tbody>
 </table>
