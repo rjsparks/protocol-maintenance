@@ -4,8 +4,8 @@
 
 Network Working Group                                         M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                             March 9, 2015
-Expires: September 10, 2015
+Intended status: Informational                            March 30, 2015
+Expires: October 1, 2015
 
 
                The Harmful Consequences of Postel's Maxim
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 10, 2015.
+   This Internet-Draft will expire on October 1, 2015.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Thomson                Expires September 10, 2015               [Page 1]
+Thomson                  Expires October 1, 2015                [Page 1]
 
 Internet-Draft          Elephants Out, Donkeys In             March 2015
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Thomson                Expires September 10, 2015               [Page 2]
+Thomson                  Expires October 1, 2015                [Page 2]
 
 Internet-Draft          Elephants Out, Donkeys In             March 2015
 
@@ -165,7 +165,7 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
 
 
 
-Thomson                Expires September 10, 2015               [Page 3]
+Thomson                  Expires October 1, 2015                [Page 3]
 
 Internet-Draft          Elephants Out, Donkeys In             March 2015
 
@@ -182,8 +182,8 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
    For widely used protocols, the massive scale of the Internet makes
    large scale interoperability testing infeasible for all a privileged
    few.  Without good maintenance, new implementations can be restricted
-   to niche uses, where the prolems arising from interoperability issues
-   can be more closely managed.
+   to niche uses, where the problems arising from interoperability
+   issues can be more closely managed.
 
    This has a negative impact on the ecosystem of a protocol.  New
    implementations of a protocol are important in ensuring the continued
@@ -199,8 +199,8 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
    rather than the protocol as it was originally conceived - can restore
    the ability to create and maintain interoperable implementations.
 
-   Such a process was undertaken for HTTP/1.1 [RFC7230].  This this
-   effort took more than 6 years, it has been successful in documenting
+   Such a process was undertaken for HTTP/1.1 [RFC7230].  This effort
+   took more than 6 years, it has been successful in documenting
    protocol variations and describing what has over time become a far
    more complex protocol.
 
@@ -221,7 +221,7 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
 
 
 
-Thomson                Expires September 10, 2015               [Page 4]
+Thomson                  Expires October 1, 2015                [Page 4]
 
 Internet-Draft          Elephants Out, Donkeys In             March 2015
 
@@ -277,7 +277,7 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
 
 
 
-Thomson                Expires September 10, 2015               [Page 5]
+Thomson                  Expires October 1, 2015                [Page 5]
 
 Internet-Draft          Elephants Out, Donkeys In             March 2015
 
@@ -333,4 +333,4 @@ Author's Address
 
 
 
-Thomson                Expires September 10, 2015               [Page 6]
+Thomson                  Expires October 1, 2015                [Page 6]
