@@ -4,8 +4,8 @@
 
 Network Working Group                                         M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                            March 30, 2015
-Expires: October 1, 2015
+Intended status: Informational                              July 6, 2015
+Expires: January 7, 2016
 
 
                The Harmful Consequences of Postel's Maxim
@@ -17,8 +17,8 @@ Abstract
    accept, and conservative in what you send" - is a principle that has
    long guided the design of Internet protocols and implementations of
    those protocols.  The posture this statement advocates might promote
-   interoperability in the short term, but that short term advantage is
-   outweighed by negative consequences that affect the long term
+   interoperability in the short term, but that short-term advantage is
+   outweighed by negative consequences that affect the long-term
    maintenance of a protocol and its ecosystem.
 
 Status of This Memo
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 1, 2015.
+   This Internet-Draft will expire on January 7, 2016.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Thomson                  Expires October 1, 2015                [Page 1]
+Thomson                  Expires January 7, 2016                [Page 1]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2015
+Internet-Draft          Elephants Out, Donkeys In              July 2015
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Thomson                  Expires October 1, 2015                [Page 2]
+Thomson                  Expires January 7, 2016                [Page 2]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2015
+Internet-Draft          Elephants Out, Donkeys In              July 2015
 
 
    It might be suggested that the posture Postel advocates was indeed
@@ -148,7 +148,8 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
    Postel sets up a feedback cycle:
 
    o  Over time, implementations progressively add new code to constrain
-      how data is transmitted, or to permit variations what is received.
+      how data is transmitted, or to permit variations in what is
+      received.
 
    o  Errors in implementations, or confusion about semantics can
       thereby be masked.
@@ -160,15 +161,17 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
    implementation of the protocol is required to replicate the aberrant
    behavior, or it is not interoperable.  This is both a consequence of
    applying Postel's advice, and a product of a natural reluctance to
+
+
+
+
+Thomson                  Expires January 7, 2016                [Page 3]
+
+Internet-Draft          Elephants Out, Donkeys In              July 2015
+
+
    avoid fatal error conditions.  This is colloquially referred to as
    being "bug for bug compatible".
-
-
-
-Thomson                  Expires October 1, 2015                [Page 3]
-
-Internet-Draft          Elephants Out, Donkeys In             March 2015
-
 
    It is debatable as to whether such a process can be completely
    avoided, but Postel's maxim encourages a reaction that compounds this
@@ -180,10 +183,10 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
    to rectify the situation.
 
    For widely used protocols, the massive scale of the Internet makes
-   large scale interoperability testing infeasible for all a privileged
-   few.  Without good maintenance, new implementations can be restricted
-   to niche uses, where the problems arising from interoperability
-   issues can be more closely managed.
+   large-scale interoperability testing infeasible for all but a
+   privileged few.  Without good maintenance, new implementations can be
+   restricted to niche uses, where the problems arising from
+   interoperability issues can be more closely managed.
 
    This has a negative impact on the ecosystem of a protocol.  New
    implementations of a protocol are important in ensuring the continued
@@ -200,9 +203,8 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
    the ability to create and maintain interoperable implementations.
 
    Such a process was undertaken for HTTP/1.1 [RFC7230].  This effort
-   took more than 6 years, it has been successful in documenting
-   protocol variations and describing what has over time become a far
-   more complex protocol.
+   took more than 6 years to document protocol variations and describe
+   what has - over time - become a far more complex protocol.
 
 4.  A New Design Principle
 
@@ -219,11 +221,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
 
 
 
-
-
-Thomson                  Expires October 1, 2015                [Page 4]
+Thomson                  Expires January 7, 2016                [Page 4]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2015
+Internet-Draft          Elephants Out, Donkeys In              July 2015
 
 
 4.1.  Fail Fast and Hard
@@ -277,9 +277,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2015
 
 
 
-Thomson                  Expires October 1, 2015                [Page 5]
+Thomson                  Expires January 7, 2016                [Page 5]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2015
+Internet-Draft          Elephants Out, Donkeys In              July 2015
 
 
 5.  IANA Considerations
@@ -333,4 +333,4 @@ Author's Address
 
 
 
-Thomson                  Expires October 1, 2015                [Page 6]
+Thomson                  Expires January 7, 2016                [Page 6]
