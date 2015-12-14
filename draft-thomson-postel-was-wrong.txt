@@ -4,8 +4,8 @@
 
 Network Working Group                                         M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                          October 16, 2015
-Expires: April 18, 2016
+Intended status: Informational                         December 14, 2015
+Expires: June 16, 2016
 
 
                The Harmful Consequences of Postel's Maxim
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 18, 2016.
+   This Internet-Draft will expire on June 16, 2016.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Thomson                  Expires April 18, 2016                 [Page 1]
+Thomson                   Expires June 16, 2016                 [Page 1]
 
-Internet-Draft          Elephants Out, Donkeys In           October 2015
+Internet-Draft          Elephants Out, Donkeys In          December 2015
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Thomson                  Expires April 18, 2016                 [Page 2]
+Thomson                   Expires June 16, 2016                 [Page 2]
 
-Internet-Draft          Elephants Out, Donkeys In           October 2015
+Internet-Draft          Elephants Out, Donkeys In          December 2015
 
 
    It might be suggested that the posture Postel advocates was indeed
@@ -165,9 +165,9 @@ Internet-Draft          Elephants Out, Donkeys In           October 2015
 
 
 
-Thomson                  Expires April 18, 2016                 [Page 3]
+Thomson                   Expires June 16, 2016                 [Page 3]
 
-Internet-Draft          Elephants Out, Donkeys In           October 2015
+Internet-Draft          Elephants Out, Donkeys In          December 2015
 
 
    avoid fatal error conditions.  This is colloquially referred to as
@@ -221,9 +221,9 @@ Internet-Draft          Elephants Out, Donkeys In           October 2015
 
 
 
-Thomson                  Expires April 18, 2016                 [Page 4]
+Thomson                   Expires June 16, 2016                 [Page 4]
 
-Internet-Draft          Elephants Out, Donkeys In           October 2015
+Internet-Draft          Elephants Out, Donkeys In          December 2015
 
 
 4.1.  Fail Fast and Hard
@@ -277,9 +277,9 @@ Internet-Draft          Elephants Out, Donkeys In           October 2015
 
 
 
-Thomson                  Expires April 18, 2016                 [Page 5]
+Thomson                   Expires June 16, 2016                 [Page 5]
 
-Internet-Draft          Elephants Out, Donkeys In           October 2015
+Internet-Draft          Elephants Out, Donkeys In          December 2015
 
 
 5.  IANA Considerations
@@ -304,18 +304,18 @@ Internet-Draft          Elephants Out, Donkeys In           October 2015
 
 7.  Informative References
 
-   [RFC0760]  Postel, J., "DoD standard Internet Protocol", RFC 760, DOI
-              10.17487/RFC0760, January 1980,
+   [RFC0760]  Postel, J., "DoD standard Internet Protocol", RFC 760,
+              DOI 10.17487/RFC0760, January 1980,
               <http://www.rfc-editor.org/info/rfc760>.
 
    [RFC6709]  Carpenter, B., Aboba, B., Ed., and S. Cheshire, "Design
-              Considerations for Protocol Extensions", RFC 6709, DOI
-              10.17487/RFC6709, September 2012,
+              Considerations for Protocol Extensions", RFC 6709,
+              DOI 10.17487/RFC6709, September 2012,
               <http://www.rfc-editor.org/info/rfc6709>.
 
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
-              Protocol (HTTP/1.1): Message Syntax and Routing", RFC
-              7230, DOI 10.17487/RFC7230, June 2014,
+              Protocol (HTTP/1.1): Message Syntax and Routing",
+              RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <http://www.rfc-editor.org/info/rfc7230>.
 
 Author's Address
@@ -333,4 +333,4 @@ Author's Address
 
 
 
-Thomson                  Expires April 18, 2016                 [Page 6]
+Thomson                   Expires June 16, 2016                 [Page 6]
