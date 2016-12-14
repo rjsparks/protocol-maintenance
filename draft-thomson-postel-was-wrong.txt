@@ -4,8 +4,8 @@
 
 Network Working Group                                         M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                         December 14, 2015
-Expires: June 16, 2016
+Intended status: Informational                         December 14, 2016
+Expires: June 17, 2017
 
 
                The Harmful Consequences of Postel's Maxim
@@ -36,11 +36,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 16, 2016.
+   This Internet-Draft will expire on June 17, 2017.
 
 Copyright Notice
 
-   Copyright (c) 2015 IETF Trust and the persons identified as the
+   Copyright (c) 2016 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Thomson                   Expires June 16, 2016                 [Page 1]
+Thomson                   Expires June 17, 2017                 [Page 1]
 
-Internet-Draft          Elephants Out, Donkeys In          December 2015
+Internet-Draft          Elephants Out, Donkeys In          December 2016
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -64,16 +64,16 @@ Internet-Draft          Elephants Out, Donkeys In          December 2015
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   2.  The Protocol Decay Hypothesis . . . . . . . . . . . . . . . .   3
+   2.  Protocol Decay  . . . . . . . . . . . . . . . . . . . . . . .   3
    3.  The Long Term Costs . . . . . . . . . . . . . . . . . . . . .   4
-   4.  A New Design Principle  . . . . . . . . . . . . . . . . . . .   4
+   4.  A New Design Principle  . . . . . . . . . . . . . . . . . . .   5
      4.1.  Fail Fast and Hard  . . . . . . . . . . . . . . . . . . .   5
      4.2.  Implementations Are Ultimately Responsible  . . . . . . .   5
-     4.3.  Protocol Maintenance is Important . . . . . . . . . . . .   5
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
+     4.3.  Protocol Maintenance is Important . . . . . . . . . . . .   6
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
    7.  Informative References  . . . . . . . . . . . . . . . . . . .   6
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
 
 1.  Introduction
 
@@ -95,23 +95,23 @@ Table of Contents
 
    Over time, considerable changes have occurred in both the scale of
    the Internet and the level of skill and experience available to
-   protocol and software designers.  Part of that experience is with
+   protocol and software designers.  Much of that experience is with
    protocols that were designed, informed by Postel's maxim, in the
    early phases of the Internet.
 
    That experience shows that there are negative long-term consequences
    to interoperability if an implementation applies Postel's advice.
    Correcting the problems caused by divergent behavior in
-   implementations can be difficult or impossible.
+   implementations can be difficult.
 
 
 
 
 
 
-Thomson                   Expires June 16, 2016                 [Page 2]
+Thomson                   Expires June 17, 2017                 [Page 2]
 
-Internet-Draft          Elephants Out, Donkeys In          December 2015
+Internet-Draft          Elephants Out, Donkeys In          December 2016
 
 
    It might be suggested that the posture Postel advocates was indeed
@@ -127,7 +127,7 @@ Internet-Draft          Elephants Out, Donkeys In          December 2015
    document serves primarily as a record of the shortcomings of His
    principle for the wider community.
 
-2.  The Protocol Decay Hypothesis
+2.  Protocol Decay
 
    Divergent implementations of a specification emerge over time.  When
    variations occur in the interpretation or expression of semantic
@@ -154,28 +154,38 @@ Internet-Draft          Elephants Out, Donkeys In          December 2015
    o  Errors in implementations, or confusion about semantics can
       thereby be masked.
 
-   o  As a result, errors can become entrenched, forcing other
-      implementations to be tolerant of those errors.
+   o  These errors can become entrenched, forcing other implementations
+      to be tolerant of those errors.
+
+   For example, the original JSON specification [RFC4627] omitted
+   critical details on a range of points including Unicode handling,
+   ordering and duplication of object members, and number encoding.
+   Consequently, a range of interpretations were used by
+   implementations.  An update [RFC7159] was unable to correct these
+
+
+
+Thomson                   Expires June 17, 2017                 [Page 3]
+
+Internet-Draft          Elephants Out, Donkeys In          December 2016
+
+
+   errors, instead concentrating on defining the interoperable subset of
+   JSON.  I-JSON [RFC7493] defines a new format that is substantially
+   similar to JSON without the interoperability flaws.  I-JSON also
+   intentionally omits some interoperability: an I-JSON implementation
+   will fail to accept some valid JSON texts.  Consequently, most JSON
+   parsers do not implement I-JSON.
 
    An entrenched flaw can become a de facto standard.  Any
    implementation of the protocol is required to replicate the aberrant
    behavior, or it is not interoperable.  This is both a consequence of
    applying Postel's advice, and a product of a natural reluctance to
-
-
-
-
-Thomson                   Expires June 16, 2016                 [Page 3]
-
-Internet-Draft          Elephants Out, Donkeys In          December 2015
-
-
    avoid fatal error conditions.  This is colloquially referred to as
    being "bug for bug compatible".
 
-   It is debatable as to whether such a process can be completely
-   avoided, but Postel's maxim encourages a reaction that compounds this
-   issue.
+   It is debatable as to whether decay can be completely avoided, but
+   Postel's maxim encourages a reaction that compounds this issue.
 
 3.  The Long Term Costs
 
@@ -189,12 +199,12 @@ Internet-Draft          Elephants Out, Donkeys In          December 2015
    interoperability issues can be more closely managed.
 
    This has a negative impact on the ecosystem of a protocol.  New
-   implementations of a protocol are important in ensuring the continued
-   viability of a protocol.  New protocol implementations are also more
-   likely to be developed for new and diverse use cases and often are
-   the origin of features and capabilities that can be of benefit to
-   existing users.  These problems also reduce the ability of
-   established implementations to change.
+   implementations are important in ensuring the continued viability of
+   a protocol.  New protocol implementations are also more likely to be
+   developed for new and diverse use cases and often are the origin of
+   features and capabilities that can be of benefit to existing users.
+   These problems also reduce the ability of established implementations
+   to change.
 
    Protocol maintenance can help by carefully documenting divergence and
    recommending limits on what is both acceptable and interoperable.
@@ -206,54 +216,72 @@ Internet-Draft          Elephants Out, Donkeys In          December 2015
    took more than 6 years to document protocol variations and describe
    what has - over time - become a far more complex protocol.
 
+
+
+
+
+
+Thomson                   Expires June 17, 2017                 [Page 4]
+
+Internet-Draft          Elephants Out, Donkeys In          December 2016
+
+
 4.  A New Design Principle
 
    The following principle applies not just to the implementation of a
    protocol, but to the design and specification of the protocol.
 
-      Protocol designs and implementations should be maximally strict.
+      Protocol designs and implementations should fail noisily in
+      response to bad or undefined inputs.
 
    Though less pithy than Postel's formulation, this principle is based
    on the lessons of protocol deployment.  The principle is also based
    on valuing early feedback, a practice central to modern engineering
    discipline.
 
-
-
-
-Thomson                   Expires June 16, 2016                 [Page 4]
-
-Internet-Draft          Elephants Out, Donkeys In          December 2015
-
-
 4.1.  Fail Fast and Hard
 
    Protocols need to include error reporting mechanisms that ensure
    errors are surfaced in a visible and expedient fashion.
 
-   Generating fatal errors for what would otherwise be a minor or
-   recoverable error is preferred, especially if there is any risk that
-   the error represents an implementation flaw.  A fatal error provides
-   excellent motivation for addressing problems.
+   Generating fatal errors in place of recovering from a possible fault
+   is preferred, especially if there is any risk that the error
+   represents an implementation flaw.  A fatal error provides excellent
+   motivation for addressing problems.
+
+   In contrast, generating warnings provide no incentive to fix a
+   problem as the system remains operational.  Users can become inured
+   to frequent use of warnings and thus systematically ignore them,
+   whereas a fatal error can only happen once and will demand attention.
 
    On the whole, implementations already have ample motivation to prefer
    interoperability over correctness.  The primary function of a
    specification is to proscribe behavior in the interest of
-   interoperability.
+   interoperability.  Specifications should mandate fast failure where
+   possible.
 
 4.2.  Implementations Are Ultimately Responsible
 
    Implementers are encouraged to expose errors immediately and
-   prominently in addition to what a specification mandates.
+   prominently, especially in cases of underspecification.
 
    Exposing errors is particularly important for early implementations
    of a protocol.  If preexisting implementations generate errors in
    response to divergent behaviour, then new implementations will be
-   able to detect and correct flaws quickly.
+   able to detect and correct their own flaws quickly.
 
    An implementer that discovers a scenario that is not covered by the
    specification does the community a greater service by generating a
    fatal error than by attempted to interpret and adapt.  Hiding errors
+
+
+
+
+Thomson                   Expires June 17, 2017                 [Page 5]
+
+Internet-Draft          Elephants Out, Donkeys In          December 2016
+
+
    can cause long-term problems.  Ideally, specification shortcomings
    are taken to protocol maintainers.
 
@@ -271,22 +299,7 @@ Internet-Draft          Elephants Out, Donkeys In          December 2015
    maintenance becomes critical.  Good extensibility [RFC6709] can
    relieve some of the pressure on maintenance.
 
-
-
-
-
-
-
-Thomson                   Expires June 16, 2016                 [Page 5]
-
-Internet-Draft          Elephants Out, Donkeys In          December 2015
-
-
-5.  IANA Considerations
-
-   This document has no IANA actions.
-
-6.  Security Considerations
+5.  Security Considerations
 
    Sloppy implementations, lax interpretations of specifications, and
    uncoordinated extrapolation of requirements to cover gaps in
@@ -302,21 +315,46 @@ Internet-Draft          Elephants Out, Donkeys In          December 2015
    opportunities to correct problems in protocols that develop
    interoperability problems.
 
+6.  IANA Considerations
+
+   This document has no IANA actions.
+
 7.  Informative References
 
    [RFC0760]  Postel, J., "DoD standard Internet Protocol", RFC 760,
               DOI 10.17487/RFC0760, January 1980,
               <http://www.rfc-editor.org/info/rfc760>.
 
+   [RFC4627]  Crockford, D., "The application/json Media Type for
+              JavaScript Object Notation (JSON)", RFC 4627,
+              DOI 10.17487/RFC4627, July 2006,
+              <http://www.rfc-editor.org/info/rfc4627>.
+
+
+
+
+Thomson                   Expires June 17, 2017                 [Page 6]
+
+Internet-Draft          Elephants Out, Donkeys In          December 2016
+
+
    [RFC6709]  Carpenter, B., Aboba, B., Ed., and S. Cheshire, "Design
               Considerations for Protocol Extensions", RFC 6709,
               DOI 10.17487/RFC6709, September 2012,
               <http://www.rfc-editor.org/info/rfc6709>.
 
+   [RFC7159]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", RFC 7159, DOI 10.17487/RFC7159, March
+              2014, <http://www.rfc-editor.org/info/rfc7159>.
+
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <http://www.rfc-editor.org/info/rfc7230>.
+
+   [RFC7493]  Bray, T., Ed., "The I-JSON Message Format", RFC 7493,
+              DOI 10.17487/RFC7493, March 2015,
+              <http://www.rfc-editor.org/info/rfc7493>.
 
 Author's Address
 
@@ -333,4 +371,22 @@ Author's Address
 
 
 
-Thomson                   Expires June 16, 2016                 [Page 6]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thomson                   Expires June 17, 2017                 [Page 7]
