@@ -119,8 +119,9 @@ Internet-Draft          Elephants Out, Donkeys In           October 2017
    its success.  This document takes no position on that claim.
 
    This document instead describes the negative consequences of the
-   application of Postel's principle to the modern Internet.  A
-   replacement design principle is suggested.
+   application of Postel's principle to the modern Internet.  In place
+   of the principle, it is recommended that protocols receive continuing
+   maintenance after their initial design and deployment.
 
    There is good evidence to suggest that designers of protocols in the
    IETF widely understand the limitations of Postel's principle.  This
@@ -161,7 +162,6 @@ Internet-Draft          Elephants Out, Donkeys In           October 2017
    critical details on a range of points including Unicode handling,
    ordering and duplication of object members, and number encoding.
    Consequently, a range of interpretations were used by
-   implementations.  An update [RFC7159] was unable to correct these
 
 
 
@@ -170,6 +170,7 @@ Thomson                  Expires April 29, 2018                 [Page 3]
 Internet-Draft          Elephants Out, Donkeys In           October 2017
 
 
+   implementations.  An update [RFC7159] was unable to correct these
    errors, instead concentrating on defining the interoperable subset of
    JSON.  I-JSON [RFC7493] defines a new format that is substantially
    similar to JSON without the interoperability flaws.  I-JSON also
@@ -213,7 +214,6 @@ Internet-Draft          Elephants Out, Donkeys In           October 2017
    These problems also reduce the ability of established implementations
    to change.  The accumulation of interoperability mitigations can be
    difficult to maintain, or even recognize in software.
-
 
 
 
