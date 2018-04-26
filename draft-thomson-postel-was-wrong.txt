@@ -4,8 +4,8 @@
 
 Network Working Group                                         M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                            March 05, 2018
-Expires: September 6, 2018
+Intended status: Informational                            April 26, 2018
+Expires: October 28, 2018
 
 
           The Harmful Consequences of the Robustness Principle
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 6, 2018.
+   This Internet-Draft will expire on October 28, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Thomson                 Expires September 6, 2018               [Page 1]
+Thomson                 Expires October 28, 2018                [Page 1]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Thomson                 Expires September 6, 2018               [Page 2]
+Thomson                 Expires October 28, 2018                [Page 2]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
    than apply the robustness principle, this document recommends
@@ -165,9 +165,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2018
 
 
 
-Thomson                 Expires September 6, 2018               [Page 3]
+Thomson                 Expires October 28, 2018                [Page 3]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
    Implementation bugs are often identified as the cause of variation,
@@ -221,9 +221,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2018
 
 
 
-Thomson                 Expires September 6, 2018               [Page 4]
+Thomson                 Expires October 28, 2018                [Page 4]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
    the problematic parts of JSON.  Of course, that means that I-JSON is
@@ -277,9 +277,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2018
 
 
 
-Thomson                 Expires September 6, 2018               [Page 5]
+Thomson                 Expires October 28, 2018                [Page 5]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
    From this perspective, application of Postel's advice to the
@@ -333,9 +333,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2018
 
 
 
-Thomson                 Expires September 6, 2018               [Page 6]
+Thomson                 Expires October 28, 2018                [Page 6]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
    Managing and deploying changes to implementations can be expensive.
@@ -389,9 +389,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2018
 
 
 
-Thomson                 Expires September 6, 2018               [Page 7]
+Thomson                 Expires October 28, 2018                [Page 7]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
 8.  IANA Considerations
@@ -445,9 +445,9 @@ Internet-Draft          Elephants Out, Donkeys In             March 2018
 
 
 
-Thomson                 Expires September 6, 2018               [Page 8]
+Thomson                 Expires October 28, 2018                [Page 8]
 
-Internet-Draft          Elephants Out, Donkeys In             March 2018
+Internet-Draft            Protocol Maintenance                April 2018
 
 
    [JSON-BIS]
@@ -501,4 +501,4 @@ Author's Address
 
 
 
-Thomson                 Expires September 6, 2018               [Page 9]
+Thomson                 Expires October 28, 2018                [Page 9]
