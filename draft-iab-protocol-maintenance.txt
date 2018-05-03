@@ -4,12 +4,12 @@
 
 Network Working Group                                         M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                            April 26, 2018
-Expires: October 28, 2018
+Intended status: Informational                              May 03, 2018
+Expires: November 4, 2018
 
 
           The Harmful Consequences of the Robustness Principle
-                 draft-thomson-postel-was-wrong-latest
+                 draft-iab-protocol-maintenance-latest
 
 Abstract
 
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 28, 2018.
+   This Internet-Draft will expire on November 4, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Thomson                 Expires October 28, 2018                [Page 1]
+Thomson                 Expires November 4, 2018                [Page 1]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Thomson                 Expires October 28, 2018                [Page 2]
+Thomson                 Expires November 4, 2018                [Page 2]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
    than apply the robustness principle, this document recommends
@@ -144,7 +144,7 @@ Internet-Draft            Protocol Maintenance                April 2018
    Indeed, an imperfect specification is natural, largely because it is
    more important to proceed to implementation and deployment than it is
    to perfect a specification.  A protocol, like any complex system,
-   benefits greatly from experience in deployment.  A deployed protocol
+   benefits greatly from experience with its use.  A deployed protocol
    is immeasurably more useful than a perfect protocol.
 
    As [SUCCESS] demonstrates, success or failure of a protocol depends
@@ -165,9 +165,9 @@ Internet-Draft            Protocol Maintenance                April 2018
 
 
 
-Thomson                 Expires October 28, 2018                [Page 3]
+Thomson                 Expires November 4, 2018                [Page 3]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
    Implementation bugs are often identified as the cause of variation,
@@ -194,13 +194,13 @@ Internet-Draft            Protocol Maintenance                April 2018
    o  These errors can become entrenched, forcing other implementations
       to be tolerant of those errors.
 
-   In this way an flaw can become entrenched as a de facto standard.
-   Any implementation of the protocol is required to replicate the
-   aberrant behavior, or it is not interoperable.  This is both a
-   consequence of applying Postel's advice, and a product of a natural
-   reluctance to avoid fatal error conditions.  Ensuring
-   interoperability in this environment is often colloquially referred
-   to as aiming to be "bug for bug compatible".
+   A flaw can become entrenched as a de facto standard.  Any
+   implementation of the protocol is required to replicate the aberrant
+   behavior, or it is not interoperable.  This is both a consequence of
+   applying Postel's advice, and a product of a natural reluctance to
+   avoid fatal error conditions.  Ensuring interoperability in this
+   environment is often colloquially referred to as aiming to be "bug
+   for bug compatible".
 
    For example, TLS demonstrates the effect of bugs.  In TLS [TLS]
    extensions use a tag-length-value format, and they can be added to
@@ -221,9 +221,9 @@ Internet-Draft            Protocol Maintenance                April 2018
 
 
 
-Thomson                 Expires October 28, 2018                [Page 4]
+Thomson                 Expires November 4, 2018                [Page 4]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
    the problematic parts of JSON.  Of course, that means that I-JSON is
@@ -270,16 +270,16 @@ Internet-Draft            Protocol Maintenance                April 2018
    extended period of time.  Indeed, in the face of divergent
    interpretations of an immutable specification, the only hope for an
    implementation to remain interoperable is to be tolerant of
-   differences in interpretation and occasional outright implementation
-   errors.
+   differences in interpretation and an occasional outright
+   implementation error.
 
 
 
 
 
-Thomson                 Expires October 28, 2018                [Page 5]
+Thomson                 Expires November 4, 2018                [Page 5]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
    From this perspective, application of Postel's advice to the
@@ -315,8 +315,7 @@ Internet-Draft            Protocol Maintenance                April 2018
    documented.  This can be difficult and time-consuming, particularly
    if the protocol has a diverse set of implementations.  Such a process
    was undertaken for HTTP [HTTP] after a period of minimal maintenance.
-   Restoring HTTP specifications to currency took significant effort
-   over more than 6 years.
+   Restoring HTTP specifications to currency took significant effort.
 
 6.  The Role of Feedback
 
@@ -333,9 +332,10 @@ Internet-Draft            Protocol Maintenance                April 2018
 
 
 
-Thomson                 Expires October 28, 2018                [Page 6]
+
+Thomson                 Expires November 4, 2018                [Page 6]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
    Managing and deploying changes to implementations can be expensive.
@@ -389,9 +389,9 @@ Internet-Draft            Protocol Maintenance                April 2018
 
 
 
-Thomson                 Expires October 28, 2018                [Page 7]
+Thomson                 Expires November 4, 2018                [Page 7]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
 8.  IANA Considerations
@@ -445,9 +445,9 @@ Internet-Draft            Protocol Maintenance                April 2018
 
 
 
-Thomson                 Expires October 28, 2018                [Page 8]
+Thomson                 Expires November 4, 2018                [Page 8]
 
-Internet-Draft            Protocol Maintenance                April 2018
+Internet-Draft            Protocol Maintenance                  May 2018
 
 
    [JSON-BIS]
@@ -501,4 +501,4 @@ Author's Address
 
 
 
-Thomson                 Expires October 28, 2018                [Page 9]
+Thomson                 Expires November 4, 2018                [Page 9]
